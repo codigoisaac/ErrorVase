@@ -89,18 +89,18 @@ function fetchIssues() {
       "<h3>" +
       desc +
       "</h3>" +
-      "<p><span class='glyphicon glyphicon-time'></span>" +
+      "<p><span class='glyphicon glyphicon-asterisk'></span> " +
       severity +
       "</p>" +
-      "<p><span class='glyphicon glyphicon-user'></span>" +
+      "<p><span class='glyphicon glyphicon-user'></span> " +
       assign +
       "</p>" +
-      '<a href="#" onclick="setStatusClosed(\'' +
+      "<a href='#' onclick='setStatusClosed(\"" +
       id +
-      '\')" class="btn btn-warning">Encerrar</a> ' +
-      '<a href="#" onclick="deleteIssue(\'' +
+      "\")' class='btn btn-warning'>Encerrar</a> " +
+      "<a href='#' onclick='deleteIssue(\"" +
       id +
-      '\')" class="btn btn-danger">Deletar</a>' +
+      "\")' class='btn btn-danger'>Deletar</a> " +
       "</div>";
   }
 }
