@@ -1,2 +1,3 @@
-# BugVase
-Aplicativo Web de rastreio de bugs e problemas - feito para Desenvolvedores com amor e Vanilla JS.
+# ErrorVase
+
+Aplicativo Web para rastreio de erros em processos - feito especialmente para Desenvolvedores, com amor e Vanilla JS.
