@@ -8,7 +8,7 @@ function addIssue(e) {
     issueSeverity = document.querySelector("#issue-severity-input").value,
     issueAssign = document.querySelector("#issue-assign-input").value,
     issueId = chance.guid(),
-    issueStatus = "Open";
+    issueStatus = "Aberto";
 
   let issue = {
     description: issueDescription,
@@ -37,14 +37,16 @@ function addIssue(e) {
   e.preventDefault();
 }
 
-function setStatusClosed(id) {
+function setStatus(id) {
   const issues = JSON.parse(localStorage.getItem("issues"));
 
-  for (let i = 0; i < issues.length; i++) {
-    if (issues[i].id == id) {
-      issues[i].status = "Encerrado";
+  // Set status to 'closed' when it is 'open',
+  // and to 'open' when it is 'closed'.
+  issues.forEach((issue) => {
+    if (issue.id == id) {
+      issue.status = issue.status == "Aberto" ? "Encerrado" : "Aberto";
     }
-  }
+  });
 
   localStorage.setItem("issues", JSON.stringify(issues));
 
@@ -71,12 +73,12 @@ function fetchIssues() {
 
   issueList.innerHTML = "";
 
-  for (let i = 0; i < issues.length; i++) {
-    let id = issues[i].id,
-      desc = issues[i].description,
-      severity = issues[i].severity,
-      assign = issues[i].assign,
-      status = issues[i].status;
+  issues.forEach((issue) => {
+    let id = issue.id,
+      description = issue.description,
+      severity = issue.severity,
+      assign = issue.assign,
+      status = issue.status;
 
     issueList.innerHTML +=
       "<div class='well'>" +
@@ -87,7 +89,7 @@ function fetchIssues() {
       status +
       "</span></p>" +
       "<h3>" +
-      desc +
+      description +
       "</h3>" +
       "<p><span class='glyphicon glyphicon-asterisk'></span> " +
       severity +
@@ -95,12 +97,18 @@ function fetchIssues() {
       "<p><span class='glyphicon glyphicon-user'></span> " +
       assign +
       "</p>" +
-      "<a href='#' onclick='setStatusClosed(\"" +
-      id +
-      "\")' class='btn btn-warning'>Encerrar</a> " +
+      // Change Status
+      (issue.status == "Aberto"
+        ? "<a href='#' onclick='setStatus(\"" +
+          id +
+          "\")' class='btn btn-warning' id='btn-status'>Encerrar</a> "
+        : "<a href='#' onclick='setStatus(\"" +
+          id +
+          "\")' class='btn btn-warning' id='btn-status'>Abrir</a> ") +
+      // Delete
       "<a href='#' onclick='deleteIssue(\"" +
       id +
       "\")' class='btn btn-danger'>Deletar</a> " +
       "</div>";
-  }
+  });
 }
