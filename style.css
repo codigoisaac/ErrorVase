@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Rose:wght@300;400;700&display=swap");
+
+:root {
+  /* Palette */
+  --home: #0c0e0a;
+  --white: #fffffa;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--white);
+  font-family: "Red Rose", cursive;
+}
+
+section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+}
+
+#home {
+  background-color: var(--home);
+}
+
+#title {
+  flex-grow: 1;
+  font-size: 7rem;
+}
+
+#vase {
+  flex-grow: 10;
+}
+
+#vase-square {
+  background-color: var(--white);
+  color: var(--home);
+  padding: 2.5rem;
+  height: 80%;
+  width: 35rem;
+}
+
+#credits {
+  flex-grow: 1;
+  margin: auto;
+}
+
+.centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* Inputs  */
+input {
+  background-color: var(--home);
+  border: 0;
+  color: var(--white);
+  padding: 0.5rem;
+}
+#fg1 {
+  grid-area: fg1;
+}
+#fg2 {
+  grid-area: fg2;
+}
+#fg3 {
+  grid-area: fg3;
+}
+#fg4 {
+  grid-area: fg4;
+}
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(3, 5rem);
+  grid-template-areas:
+    "fg1 fg1"
+    "fg2 fg2"
+    "fg3 fg4";
+  width: 100%;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1rem;
+}
+
+/* Error List  */
+#issues {
+  background-color: black;
+}

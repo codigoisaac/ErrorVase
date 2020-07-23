@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Error Vase</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section id="home">
+      <div id="title">ErrorVase</div>
+
+      <div id="vase" class="centered">
+        <div id="vase-square" class="centered">
+          <h1 id="form-title">Inserir novo erro:</h1>
+          <form id="add-error-form">
+            <!-- Error Title  -->
+            <div class="form-group" id="fg1">
+              <label for="issue-title">Título:</label>
+              <input type="text" name="issue-title" placeholder="..." />
+            </div>
+
+            <!-- Error Description  -->
+            <div class="form-group" id="fg2">
+              <label for="issue-description">Descrição:</label>
+              <input type="text" name="issue-description" placeholder="..." />
+            </div>
+
+            <!-- Severity  -->
+            <div class="form-group" id="fg3">
+              <label for="issue-severity">Gravidade:</label>
+              <select name="issue-severity">
+                <option value="Baixa Gravidade">Baixa</option>
+                <option value="Média Gravidade">Média</option>
+                <option value="Alta Gravidade">Alta</option>
+              </select>
+            </div>
+
+            <!-- Assign To  -->
+            <div class="form-group" id="fg4">
+              <label for="issue-assign">Atribuído a:</label>
+              <input type="text" name="issue-assign" placeholder="..." />
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div id="credits" class="centered">por IsaacDevelops</div>
+    </section>
+
+    <section id="issues">
+      <div id="issue-list"></div>
+    </section>
+
+    <footer></footer>
+  </body>
+</html>
