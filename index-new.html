@@ -3,12 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Error Vase</title>
+    <title>ErrorVase</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <section id="home">
-      <div id="title">ErrorVase</div>
+      <div id="title">
+        <img src="logo.png" alt="logo" />
+        ErrorVase
+      </div>
 
       <div id="vase" class="centered">
         <div id="vase-square" class="centered">
@@ -30,6 +33,7 @@
             <div class="form-group" id="fg3">
               <label for="issue-severity">Gravidade:</label>
               <select name="issue-severity">
+                <option value="Vazio"></option>
                 <option value="Baixa Gravidade">Baixa</option>
                 <option value="Média Gravidade">Média</option>
                 <option value="Alta Gravidade">Alta</option>
@@ -38,7 +42,7 @@
 
             <!-- Assign To  -->
             <div class="form-group" id="fg4">
-              <label for="issue-assign">Atribuído a:</label>
+              <label for="issue-assign">Responsável:</label>
               <input type="text" name="issue-assign" placeholder="..." />
             </div>
           </form>
@@ -48,10 +52,78 @@
       <div id="credits" class="centered">por IsaacDevelops</div>
     </section>
 
-    <section id="issues">
-      <div id="issue-list"></div>
+    <section id="issues" class="centered">
+      <!-- Erros como exemplo -->
+      <div class="issue">
+        <div class="id">ERRO: 877445</div>
+        <div class="title-n-status-open">
+          <div class="title">Acesso ao Servidor</div>
+          <div class="status">Aberto</div>
+        </div>
+        <div class="descr">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+        </div>
+        <div class="severity">
+          <i class="icon fas fa-exclamation-triangle"></i>Alta Gravidade
+        </div>
+        <div class="assign">
+          <i class="icon fas fa-user-ninja"></i>Helena Hauff
+        </div>
+        <div class="buttons">
+          <button class="btn btn-warning">Encerrar</button>
+          <button class="btn btn-danger">Deletar</button>
+        </div>
+      </div>
+
+      <div class="issue">
+        <div class="id">ERRO: 954448</div>
+        <div class="title-n-status-closed">
+          <div class="title">Inteligência Artificial</div>
+          <div class="status">Encerrado</div>
+        </div>
+        <div class="descr">
+          Lorem ipsum dolor sit amet consectetur adipisicing.
+        </div>
+        <div class="severity">
+          <i class="icon fas fa-exclamation-triangle"></i>Alta Gravidade
+        </div>
+        <div class="assign">
+          <i class="icon fas fa-user-ninja"></i>Helena Hauff
+        </div>
+        <div class="buttons">
+          <button class="btn btn-warning">Abrir</button>
+          <button class="btn btn-danger">Deletar</button>
+        </div>
+      </div>
+
+      <div class="issue">
+        <div class="id">ERRO: 548881</div>
+        <div class="title-n-status-open">
+          <div class="title">Função SetStatus()</div>
+          <div class="status">Aberto</div>
+        </div>
+        <div class="descr">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
+          veritatis sequi corrupti?
+        </div>
+        <div class="severity">
+          <i class="icon fas fa-exclamation-triangle"></i>Média Gravidade
+        </div>
+        <div class="assign">
+          <i class="icon fas fa-user-ninja"></i>Helena Hauff
+        </div>
+        <div class="buttons">
+          <button class="btn btn-warning">Encerrar</button>
+          <button class="btn btn-danger">Deletar</button>
+        </div>
+      </div>
     </section>
 
     <footer></footer>
+
+    <script
+      src="https://kit.fontawesome.com/0e6dcfaf2a.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

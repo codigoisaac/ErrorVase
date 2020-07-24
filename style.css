@@ -2,8 +2,11 @@
 
 :root {
   /* Palette */
-  --home: #0c0e0a;
+  --black: #0c0e0a;
   --white: #fffffa;
+  --cream: #e5dcc5;
+  --red: #f71735;
+  --purple: #6d72c3;
 }
 
 * {
@@ -17,19 +20,23 @@ body {
 }
 
 section {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  padding: 3rem;
+  padding: 2rem;
 }
 
 #home {
-  background-color: var(--home);
+  background-color: var(--black);
 }
 
 #title {
   flex-grow: 1;
-  font-size: 7rem;
+  /* font-size: 7rem; */
+  font-size: 2rem;
+}
+#title img {
+  display: none;
 }
 
 #vase {
@@ -38,10 +45,12 @@ section {
 
 #vase-square {
   background-color: var(--white);
-  color: var(--home);
-  padding: 2.5rem;
+  color: var(--black);
+  /* padding: 2.5rem; */
   height: 80%;
-  width: 35rem;
+  /* width: 35rem; */
+  width: 80vw;
+  max-width: 422px;
 }
 
 #credits {
@@ -57,11 +66,13 @@ section {
 }
 
 /* Inputs  */
-input {
-  background-color: var(--home);
+input,
+select {
+  background-color: var(--black);
   border: 0;
   color: var(--white);
   padding: 0.5rem;
+  width: 100%;
 }
 #fg1 {
   grid-area: fg1;
@@ -79,10 +90,15 @@ form {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(3, 5rem);
+  /* grid-template-areas:
+    "fg1 fg1"
+    "fg2 fg2"
+    "fg3 fg4"; */
   grid-template-areas:
     "fg1 fg1"
     "fg2 fg2"
-    "fg3 fg4";
+    "fg4 fg4"
+    "fg3 fg3";
   width: 100%;
 }
 .form-group {
@@ -95,4 +111,30 @@ form {
 /* Error List  */
 #issues {
   background-color: black;
+}
+.issue {
+  color: var(--black);
+  background-color: var(--white);
+  margin: 1rem 0;
+  max-width: 256px;
+}
+.issue > * {
+  padding: 1rem;
+}
+.issue .title-n-status-open {
+  background-color: var(--purple);
+  color: var(--white);
+}
+.issue .status {
+  font-size: 0.7rem;
+}
+.btn {
+  border: 0;
+  padding: 0.4rem;
+  color: var(--cream);
+  background-color: var(--black);
+  font-family: "Red Rose", cursive;
+}
+.icon {
+  margin-right: 1rem;
 }
