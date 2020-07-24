@@ -35,9 +35,6 @@ section {
   /* font-size: 7rem; */
   font-size: 2rem;
 }
-#title img {
-  display: none;
-}
 
 #vase {
   flex-grow: 10;
@@ -116,14 +113,23 @@ form {
   color: var(--black);
   background-color: var(--white);
   margin: 1rem 0;
-  max-width: 256px;
+  width: 80vw;
+  /* box-shadow: 0px 0px 10px 6px var(--white); */
 }
 .issue > * {
   padding: 1rem;
 }
-.issue .title-n-status-open {
-  background-color: var(--purple);
-  color: var(--white);
+.issue-open {
+  box-shadow: 0px 0px 10px 6px var(--red);
+}
+.issue-open .title-n-status {
+  color: var(--red);
+}
+.issue-closed {
+  box-shadow: 0px 0px 10px 6px var(--purple);
+}
+.issue-closed .title-n-status {
+  color: var(--purple);
 }
 .issue .status {
   font-size: 0.7rem;
@@ -137,4 +143,33 @@ form {
 }
 .icon {
   margin-right: 1rem;
+}
+
+/* Mobile L  */
+@media only screen and (min-width: 425px) {
+  .issue {
+    width: 70vw;
+  }
+
+  #title {
+    font-size: 3rem;
+  }
+}
+
+/* Tablet */
+@media only screen and (min-width: 768px) {
+  .issue {
+    width: 60vw;
+  }
+}
+
+/* Laptop  */
+@media only screen and (min-width: 1024px) {
+  .issue {
+    width: 50vw;
+  }
+}
+
+/* 4K  */
+@media only screen and (min-width: 2560px) {
 }
