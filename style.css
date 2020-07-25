@@ -122,7 +122,7 @@ form button {
   background-color: var(--white);
   margin: 1rem 0;
   width: 80vw;
-  --issue-border: 3px;
+  --issue-border: 2px;
 }
 .issue > * {
   padding: 1rem;
@@ -130,11 +130,11 @@ form button {
 .issue-open {
   box-shadow: 0px 0px 10px var(--issue-border) var(--red);
 }
-.issue-open .title-n-status {
-  color: var(--red);
-}
 .issue-closed {
   box-shadow: 0px 0px 10px var(--issue-border) var(--purple);
+}
+.issue-open .title-n-status {
+  color: var(--red);
 }
 .issue-closed .title-n-status {
   color: var(--purple);
@@ -152,6 +152,12 @@ button {
 }
 .icon {
   margin-right: 1rem;
+}
+
+/* Empty data message  */
+#empty-list {
+  text-align: center;
+  color: var(--cream);
 }
 
 /* Mobile L  */

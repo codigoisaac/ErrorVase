@@ -21,16 +21,22 @@ function addIssue(e) {
   };
 
   // save to the localStorage
-  if (localStorage.getItem("issues") == null) {
-    // if the 'issues' item doesn't exists
-    let issues = [];
-    issues.push(issue);
-    localStorage.setItem("issues", JSON.stringify(issues));
+  // only if the form has at least a title
+  if (issueTitle != "") {
+    if (localStorage.getItem("issues") == null) {
+      // if the 'issues' item doesn't exists
+      let issues = [];
+      issues.push(issue);
+      localStorage.setItem("issues", JSON.stringify(issues));
+    } else {
+      // if the 'issues' item already exists
+      let issues = JSON.parse(localStorage.getItem("issues"));
+      issues.push(issue);
+      localStorage.setItem("issues", JSON.stringify(issues));
+    }
   } else {
-    // if the 'issues' item already exists
-    let issues = JSON.parse(localStorage.getItem("issues"));
-    issues.push(issue);
-    localStorage.setItem("issues", JSON.stringify(issues));
+    // if the title is empty
+    alert("Título do erro necessário para salvar.");
   }
 
   form.reset();
@@ -48,6 +54,15 @@ function fetchIssues() {
 
   // clean the html before
   issueList.innerHTML = "";
+
+  // show a message if there is no error
+  if (issues.length == 0) {
+    issueList.innerHTML =
+      "<p id='empty-list'>" +
+      "Uma vida sem erros é uma vida vazia. <br/> " +
+      "Use o formulário acima para adicioná-los.</p>";
+    console.log(issues.length);
+  }
 
   issues.forEach((issue) => {
     let title = issue.title,
