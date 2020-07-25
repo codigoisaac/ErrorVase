@@ -4,79 +4,136 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ErrorVase</title>
-    <!-- Bootstrap -->
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body onload="fetchIssues()">
-    <!-- ------------------------ Content ------------------------ -->
-    <div class="container">
-      <h1>ErrorVase <small>por IsaacDevelops</small></h1>
-
-      <!-- Add Error Form  -->
-      <div class="jumbotron">
-        <h3>Adicionar Novo Erro:</h3>
-        <form id="issue-input-form">
-          <!-- Error Description -->
-          <div class="form-group">
-            <label for="issue-description-input">Descrição:</label>
-            <input
-              type="text"
-              class="form-control"
-              id="issue-description-input"
-              placeholder="Descreva o Erro ..."
-            />
-          </div>
-
-          <!-- Severity -->
-          <div class="form-group">
-            <label for="issue-severity-input">Gravidade:</label>
-            <select id="issue-severity-input" class="form-control">
-              <option value="Baixa Gravidade">Baixa Gravidade</option>
-              <option value="Média Gravidade">Média Gravidade</option>
-              <option value="Alta Gravidade">Alta Gravidade</option>
-            </select>
-          </div>
-
-          <!-- Atribuição -->
-          <div class="form-group">
-            <label for="issue-assign-input">Responsável:</label>
-            <input
-              type="text"
-              class="form-control"
-              id="issue-assign-input"
-              placeholder="Insira o responsável ..."
-            />
-          </div>
-
-          <!-- Submit Button  -->
-          <button type="submit" class="btn btn-primary">Adicionar</button>
-        </form>
+    <section id="home">
+      <div id="title">
+        ErrorVase
       </div>
 
-      <!-- Error List  -->
-      <div class="col-lg-12">
-        <div id="issueList"></div>
+      <div id="vase" class="centered">
+        <div id="vase-square" class="centered">
+          <h1 id="form-title">Inserir novo erro:</h1>
+          <!-- Add error form  -->
+          <form id="add-error-form">
+            <!-- Error Title  -->
+            <div class="form-group" id="fg1">
+              <label for="issue-title">Título:</label>
+              <input type="text" name="issue-title" placeholder="..." />
+            </div>
+
+            <!-- Error Description  -->
+            <div class="form-group" id="fg2">
+              <label for="issue-description">Descrição:</label>
+              <input type="text" name="issue-description" placeholder="..." />
+            </div>
+
+            <!-- Assign To  -->
+            <div class="form-group" id="fg3">
+              <label for="issue-assign">Responsável:</label>
+              <input type="text" name="issue-assign" placeholder="..." />
+            </div>
+
+            <!-- Severity  -->
+            <div class="form-group" id="fg4">
+              <label for="issue-severity">Gravidade:</label>
+              <select name="issue-severity">
+                <option value="Vazio"></option>
+                <option value="Baixa Gravidade">Baixa</option>
+                <option value="Média Gravidade">Média</option>
+                <option value="Alta Gravidade">Alta</option>
+              </select>
+            </div>
+
+            <!-- Buttons  -->
+            <div class="form-group" id="fg5">
+              <button type="reset">- Apagar</button>
+              <button type="submit">+ Adicionar</button>
+            </div>
+          </form>
+        </div>
       </div>
 
-      <div class="footer">
-        <p>&copy IsaacDevelops</p>
+      <div id="credits" class="centered">por IsaacDevelops</div>
+    </section>
+
+    <!-- List of saved errors -->
+    <section id="issues" class="centered">
+      <div id="issue-list" class="centered">
+        <!-- Example Data  -->
+        <!-- <div class="issue issue-open">
+          <div class="id">ERRO: 877445</div>
+          <div class="title-n-status">
+            <div class="title">Acesso ao Servidor</div>
+            <div class="status">Aberto</div>
+          </div>
+          <div class="descr">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+          </div>
+          <div class="severity">
+            <i class="icon fas fa-exclamation-triangle"></i>Alta Gravidade
+          </div>
+          <div class="assign">
+            <i class="icon fas fa-user-ninja"></i>Helena Hauff
+          </div>
+          <div class="buttons">
+            <button>Encerrar</button>
+            <button>Deletar</button>
+          </div>
+        </div>
+
+        <div class="issue issue-closed">
+          <div class="id">ERRO: 954448</div>
+          <div class="title-n-status">
+            <div class="title">Inteligência Artificial</div>
+            <div class="status">Encerrado</div>
+          </div>
+          <div class="descr">
+            Lorem ipsum dolor sit amet consectetur adipisicing.
+          </div>
+          <div class="severity">
+            <i class="icon fas fa-exclamation-triangle"></i>Alta Gravidade
+          </div>
+          <div class="assign"><i class="icon fas fa-user-ninja"></i>KI/KI</div>
+          <div class="buttons">
+            <button>Abrir</button>
+            <button>Deletar</button>
+          </div>
+        </div>
+
+        <div class="issue issue-open">
+          <div class="id">ERRO: 548881</div>
+          <div class="title-n-status">
+            <div class="title">Função SetStatus()</div>
+            <div class="status">Aberto</div>
+          </div>
+          <div class="descr">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
+            veritatis sequi corrupti?
+          </div>
+          <div class="severity">
+            <i class="icon fas fa-exclamation-triangle"></i>Média Gravidade
+          </div>
+          <div class="assign">
+            <i class="icon fas fa-user-ninja"></i>E110101
+          </div>
+          <div class="buttons">
+            <button>Encerrar</button>
+            <button>Deletar</button>
+          </div>
+        </div> -->
       </div>
-    </div>
+    </section>
+
+    <footer></footer>
 
     <!-- ------------------------ Scripts ------------------------ -->
     <!-- My Script  -->
     <script src="script.js"></script>
-    <!-- jQuery  -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Bootstrap  -->
+    <!-- FontAwesome  -->
     <script
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-      integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+      src="https://kit.fontawesome.com/0e6dcfaf2a.js"
       crossorigin="anonymous"
     ></script>
     <!-- Chance.JS  -->

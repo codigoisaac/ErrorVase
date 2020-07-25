@@ -62,7 +62,7 @@ section {
   flex-direction: column;
 }
 
-/* Inputs  */
+/* Inputs & Form  */
 input,
 select {
   background-color: var(--black);
@@ -83,19 +83,20 @@ select {
 #fg4 {
   grid-area: fg4;
 }
+#fg5 {
+  grid-area: fg5;
+  flex-direction: row;
+}
 form {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(3, 5rem);
-  /* grid-template-areas:
-    "fg1 fg1"
-    "fg2 fg2"
-    "fg3 fg4"; */
+  grid-template-rows: repeat(4, 5rem);
   grid-template-areas:
     "fg1 fg1"
     "fg2 fg2"
+    "fg3 fg3"
     "fg4 fg4"
-    "fg3 fg3";
+    "fg5 fg5";
   width: 100%;
 }
 .form-group {
@@ -103,6 +104,9 @@ form {
   flex-direction: column;
   justify-content: center;
   margin: 1rem;
+}
+form button {
+  width: 100%;
 }
 
 /* Error List  */
@@ -114,19 +118,19 @@ form {
   background-color: var(--white);
   margin: 1rem 0;
   width: 80vw;
-  /* box-shadow: 0px 0px 10px 6px var(--white); */
+  --issue-border: 3px;
 }
 .issue > * {
   padding: 1rem;
 }
 .issue-open {
-  box-shadow: 0px 0px 10px 6px var(--red);
+  box-shadow: 0px 0px 10px var(--issue-border) var(--red);
 }
 .issue-open .title-n-status {
   color: var(--red);
 }
 .issue-closed {
-  box-shadow: 0px 0px 10px 6px var(--purple);
+  box-shadow: 0px 0px 10px var(--issue-border) var(--purple);
 }
 .issue-closed .title-n-status {
   color: var(--purple);
@@ -134,12 +138,13 @@ form {
 .issue .status {
   font-size: 0.7rem;
 }
-.btn {
+button {
   border: 0;
   padding: 0.4rem;
   color: var(--cream);
   background-color: var(--black);
   font-family: "Red Rose", cursive;
+  border: 1px solid var(--white);
 }
 .icon {
   margin-right: 1rem;
@@ -168,8 +173,4 @@ form {
   .issue {
     width: 50vw;
   }
-}
-
-/* 4K  */
-@media only screen and (min-width: 2560px) {
 }
