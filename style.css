@@ -52,7 +52,11 @@ section {
 
 #credits {
   flex-grow: 1;
-  margin: auto;
+}
+a {
+  color: var(--white);
+  text-decoration: none;
+  cursor: cell;
 }
 
 .centered {
