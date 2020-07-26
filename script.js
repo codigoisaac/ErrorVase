@@ -21,7 +21,7 @@ function addIssue(e) {
   };
 
   // save to the localStorage
-  // only if the form has at least a title
+  // and alert if it has no title
   if (issueTitle != "") {
     if (localStorage.getItem("issues") == null) {
       // if the 'issues' item doesn't exists
@@ -56,14 +56,14 @@ function fetchIssues() {
   issueList.innerHTML = "";
 
   // show a message if there is no error
-  if (issues.length == 0) {
+  if (localStorage.getItem("issues") == null || issues.length == 0) {
     issueList.innerHTML =
       "<p id='empty-list'>" +
       "Uma vida sem erros é uma vida vazia. <br/> " +
       "Use o formulário acima para adicioná-los.</p>";
-    console.log(issues.length);
   }
 
+  // insert html
   issues.forEach((issue) => {
     let title = issue.title,
       description = issue.description,
@@ -72,7 +72,6 @@ function fetchIssues() {
       id = issue.id,
       status = issue.status;
 
-    // insert the html
     issueList.innerHTML +=
       "<div class='issue" +
       (issue.status == "Aberto" ? " issue-open'" : " issue-closed'") +
